@@ -1,8 +1,25 @@
 .main {
   max-width: 800px;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+}
+.word-box{
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  max-width: 800px;
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  color: grey;
+}
+
+.black{
+color: black;
+}
+.red{
+  color: red;
 }
