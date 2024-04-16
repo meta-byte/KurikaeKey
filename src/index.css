@@ -1,3 +1,11 @@
+body {
+  background-color: #293032;
+  font-family: monospace;
+}
+
+span{
+border-right: 2px solid transparent;}
+
 .main {
   max-width: 800px;
   display: flex;
@@ -7,19 +15,35 @@
   align-items: center;
   justify-content: center;
 }
-.word-box{
+.word-box {
+  word-wrap: normal;
+  text-align: left;
   border-width: 2px;
   border-style: solid;
   border-color: black;
   max-width: 800px;
-  padding: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  color: grey;
+  padding: 10px;
+  color: #a4b0b6;
 }
 
-.black{
-color: black;
+.active {
+  border-right: 2px solid #9cf6f6;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
-.red{
-  color: red;
+
+.correct {
+  color: #e6f4f4;
+}
+.miss {
+  color: #f56960;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: #9cf6f6;
+  }
+  50% {
+    border-color: transparent;
+  }
 }

@@ -4,7 +4,7 @@ import "./index.css";
 function App() {
   const [key, setKey] = useState<string>("Key");
   const [word] = useState<string>(
-    "the quick brown fox jumped over the lazy dog"
+    "the quick brown fox jumped over the lazy dog and ran down the hill"
   );
   const [keyIndex, setKeyIndex] = useState<number>(-1);
   const [matchingIndices, setMatchingIndices] = useState<number[]>([]);
@@ -13,7 +13,6 @@ function App() {
 
   useEffect(() => {
     if (keyIndex <= split.length) {
-      console.log(split[keyIndex]);
       if (split[keyIndex] == key) {
         setMatchingIndices((prevMatching) => [...prevMatching, keyIndex])
       } else {
@@ -29,12 +28,12 @@ function App() {
   };
 
   const coloredString = useMemo(() => {
-    console.log(matchingIndices)
     return split.map((char, index) => {
+      const isActive = index == keyIndex
       const isMatch = matchingIndices.includes(index);
       const isMiss = missingIndices.includes(index);
       return (
-        <span key={index} className={isMatch ? "black" : isMiss ? "red" : ""}>
+<span key={index} className={`${isMatch ? "correct" : ""} ${isMiss ? "miss" : ""} ${isActive ? "active" : ""}`}>
           {char}
         </span>
       );
@@ -46,7 +45,7 @@ function App() {
       <div className="word-box">
         <h1>{coloredString}</h1>
       </div>
-      <h1>{key}</h1>
+      {/* <h1>{key}</h1> */}
     </div>
   );
 }
