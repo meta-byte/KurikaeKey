@@ -14,9 +14,9 @@ function App() {
   useEffect(() => {
     if (keyIndex <= split.length) {
       if (split[keyIndex] == key) {
-        setMatchingIndices((prevMatching) => [...prevMatching, keyIndex])
+        setMatchingIndices((prevMatching) => [...prevMatching, keyIndex]);
       } else {
-        setMissingIndices((prevMissing) => [...prevMissing, keyIndex])
+        setMissingIndices((prevMissing) => [...prevMissing, keyIndex]);
       }
     }
   }, [keyIndex]);
@@ -29,11 +29,16 @@ function App() {
 
   const coloredString = useMemo(() => {
     return split.map((char, index) => {
-      const isActive = index == keyIndex
+      const isActive = index == keyIndex;
       const isMatch = matchingIndices.includes(index);
       const isMiss = missingIndices.includes(index);
       return (
-<span key={index} className={`${isMatch ? "correct" : ""} ${isMiss ? "miss" : ""} ${isActive ? "active" : ""}`}>
+        <span
+          key={index}
+          className={`${isMatch ? "correct" : ""} ${isMiss ? "miss" : ""} ${
+            isActive ? "active" : ""
+          }`}
+        >
           {char}
         </span>
       );
@@ -42,10 +47,12 @@ function App() {
 
   return (
     <div className="main">
-      <div className="word-box">
-        <h1>{coloredString}</h1>
+      <div className="prompt-box">
+        <h2>{coloredString}</h2>
       </div>
-      {/* <h1>{key}</h1> */}
+      <div className="word-box">
+        <label>&gt;</label><input type="text"/>{" "}
+      </div>
     </div>
   );
 }

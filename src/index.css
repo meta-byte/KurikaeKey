@@ -1,10 +1,19 @@
-body {
-  background-color: #293032;
-  font-family: monospace;
+@font-face {
+  font-family: "OCR A Std";
+  src: url("src/assets/ocr-a-std-2.ttf") format("truetype");
+  font-style: normal;
 }
 
-span{
-border-right: 2px solid transparent;}
+body {
+  background-color: #14271a;
+  font-family: "OCR A Std", monospace;
+}
+h2 {
+  font-weight: 400;
+}
+span {
+  border-right: 2px solid transparent;
+}
 
 .main {
   max-width: 800px;
@@ -18,21 +27,29 @@ border-right: 2px solid transparent;}
 .word-box {
   word-wrap: normal;
   text-align: left;
-  border-width: 2px;
   border-style: solid;
-  border-color: black;
+  border-color: #87f1b4;
   max-width: 800px;
   padding: 10px;
-  color: #a4b0b6;
+  color: #137e3e;
+}
+.prompt-box {
+  word-wrap: normal;
+  text-align: left;
+  border-style: solid;
+  border-color: #87f1b4;
+  max-width: 800px;
+  padding: 10px;
+  color: #137e3e;
 }
 
 .active {
-  border-right: 2px solid #9cf6f6;
+  border-right: 12px solid #87f1b4;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 .correct {
-  color: #e6f4f4;
+  color: #87f1b4;
 }
 .miss {
   color: #f56960;
@@ -41,9 +58,29 @@ border-right: 2px solid transparent;}
 @keyframes blink-caret {
   from,
   to {
-    border-color: #9cf6f6;
+    border-color: #87f1b4;
   }
   50% {
     border-color: transparent;
   }
+}
+label{
+  font-family: "OCR A Std", monospace;
+  max-width: 800px;
+  font-weight: 400;
+}
+input[type=text],
+textarea {
+	background: transparent;
+	border: none;
+	color: #87f1b4;
+	display: block;
+	float: left;
+	font-size: 24px;
+	position: relative;
+  max-width: 800px;
+  font-family: "OCR A Std", monospace;
+  max-width: 800px;
+  font-weight: 400;
+
 }
